@@ -47,7 +47,7 @@ const searchField = document.getElementById("searchInput");
 
 // Adding a click event listener to the searchButton
 searchButton.addEventListener("click", (event) => {
-    // Preventing the default form submission behavior
+    // Preventing the default
     event.preventDefault();
     // Getting the search term from the searchField and converting it to lower case
     const searchTerm = searchField.value.toLowerCase();
@@ -56,4 +56,19 @@ searchButton.addEventListener("click", (event) => {
     console.log("filteredData", filteredData);
     // Displaying the filtered cats
     displayCats(filteredData);
+});
+
+// Get the button element with the id "resetButton"
+const resetButton = document.getElementById("resetButton");
+
+// Add a click event listener to the resetButton
+resetButton.addEventListener("click", (event) => {
+    // Prevent the default action of the button
+    event.preventDefault();
+
+    // Get the input element
+    document.getElementById("searchInput").value = "";
+
+    // Call the displayCats function to reset dom to default display
+    displayCats(allData);
 });
