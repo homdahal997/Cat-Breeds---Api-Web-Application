@@ -36,6 +36,13 @@ function displayCats(cats) {
                 </div>
             </div>
         `;
+        // add eventListener to card to display breed information
+        card.addEventListener("click", (e) => {
+            e.preventDefault();
+            // Add data attributes to trigger the modal
+        card.setAttribute("data-bs-toggle", "modal");
+        card.setAttribute("data-bs-target", "#exampleModal");
+        });
 
         // Create the favorite icon
         const favoriteIcon = document.createElement("i");
@@ -45,13 +52,15 @@ function displayCats(cats) {
         favoriteIcon.style.top = "10px";
         favoriteIcon.style.right = "20px";
         favoriteIcon.style.cursor = "pointer";
+        
+
         // Add an event listener to the favorite icon
         favoriteIcon.addEventListener("click", function (event) {
             // Prevent the default action
             event.preventDefault();
 
             console.log("Favorite icon clicked!");
-            alert("I will proudly handle favourites later if you are able to implement me ...lol");
+            //alert("I will proudly handle favourites later if you are able to implement me ...lol");
 
         });
 
