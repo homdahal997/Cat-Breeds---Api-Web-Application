@@ -23,7 +23,7 @@ function displayCats(cats) {
     // Clearing the catList
     catList.innerHTML = "";
     // Looping over the first 9 cats- intended to display only nine cats on front page.
-    cats.slice(0,9).forEach(cat => {
+    cats.slice(0, 9).forEach(cat => {
         // Creating a new div for each cat
         const card = document.createElement("div");
         card.classList.add("col-md-4", "mb-3");
@@ -36,6 +36,27 @@ function displayCats(cats) {
                 </div>
             </div>
         `;
+
+        // Create the favorite icon
+        const favoriteIcon = document.createElement("i");
+        favoriteIcon.className = "fas fa-heart";
+        favoriteIcon.style.color = "red";
+        favoriteIcon.style.position = "absolute";
+        favoriteIcon.style.top = "10px";
+        favoriteIcon.style.right = "20px";
+        favoriteIcon.style.cursor = "pointer";
+        // Add an event listener to the favorite icon
+        favoriteIcon.addEventListener("click", function (event) {
+            // Prevent the default action
+            event.preventDefault();
+
+            console.log("Favorite icon clicked!");
+            alert("I will proudly handle favourites later if you are able to implement me ...lol");
+
+        });
+
+        // Append the favorite button to the card body
+        card.querySelector(".card-body").appendChild(favoriteIcon);
         // Appending the card to the second row element on the page
         document.querySelectorAll(".row")[1].appendChild(card);
     });
