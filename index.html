@@ -13,11 +13,18 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4 header">Cat Breeds</h1>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="d-flex mb-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="mx-auto order-0">
+                <!-- Navbar content here -->
+                <a class="navbar-brand mx-auto" href="./index.html">Your Cat Breeds</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <!-- Navbar content here -->
+                <div class="navbar-nav mx-auto">
                     <input class="form-control me-2" type="search" id="searchInput"
                         placeholder="Search for a cat breed..." aria-label="Search">
                     <button class="btn btn-outline-success ms-2" style="white-space: nowrap;" id="searchButton"
@@ -29,10 +36,15 @@
                     <button class="btn btn-outline-primary ms-2" style="white-space: nowrap;" id="listFavoritesButton"
                         type="button">List Favorites</button>
                 </div>
+                
             </div>
         </div>
-        <div id="catList" class="row">This is where cats are displayed</div>
-        <div id="pagination">This may be a future pagination area...lol </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+        </div>
+        <div id="catList" class="row"></div>
+        <div id="pagination"></div>
     </div>
 
     <!-- modal starts here  -->
@@ -40,9 +52,8 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                
                 <div class="modal-body">
-                    <p>Cat Information 
+                    <p>Cat Information
                     </p>
                 </div>
                 <div class="modal-footer">
@@ -51,7 +62,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
     <!-- modal end here  -->
 </body>
 
