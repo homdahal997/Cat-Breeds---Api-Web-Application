@@ -129,8 +129,6 @@ function displayCatDetails(cat) {
 
     // Update the modal body content
     modalBody.innerHTML = catDetails;
-    // Update the modal body content
-    modalBody.innerHTML = catDetails;
 
     // Select the modal
     let modal = document.getElementById('exampleModal');
