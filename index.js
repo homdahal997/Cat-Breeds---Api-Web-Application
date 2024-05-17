@@ -11,6 +11,7 @@ fetchcatdata().then(data => {
     console.log(allData);
     // Displaying the fetched cats
     displayCats(allData);
+
 }).catch(error => {
     // Logging any errors that occur during fetching
     console.error("Error:", error);
@@ -36,12 +37,10 @@ function displayCats(cats) {
                 </div>
             </div>
         `;
-        // add eventListener to card to display breed information
-        card.addEventListener("click", (e) => {
-            e.preventDefault();
-            // Add data attributes to trigger the modal
-        card.setAttribute("data-bs-toggle", "modal");
-        card.setAttribute("data-bs-target", "#exampleModal");
+
+        // Event Listener for each card that display cat details on popup.
+        card.addEventListener("click", () => {
+            displayCatDetails(cat);
         });
 
         // Create the favorite icon
@@ -52,15 +51,16 @@ function displayCats(cats) {
         favoriteIcon.style.top = "10px";
         favoriteIcon.style.right = "20px";
         favoriteIcon.style.cursor = "pointer";
-        
+
 
         // Add an event listener to the favorite icon
         favoriteIcon.addEventListener("click", function (event) {
             // Prevent the default action
             event.preventDefault();
+            event.stopPropagation();
 
             console.log("Favorite icon clicked!");
-            //alert("I will proudly handle favourites later if you are able to implement me ...lol");
+            alert("I will proudly handle favourites later if you are able to implement me ...lol");
 
         });
 
@@ -68,6 +68,8 @@ function displayCats(cats) {
         card.querySelector(".card-body").appendChild(favoriteIcon);
         // Appending the card to the second row element on the page
         document.querySelectorAll(".row")[1].appendChild(card);
+
+
     });
 }
 
@@ -102,3 +104,40 @@ resetButton.addEventListener("click", (event) => {
     // Call the displayCats function to reset dom to default display
     displayCats(allData);
 });
+
+// Function to display cat details in the modal
+function displayCatDetails(cat) {
+    // Select the modal body
+    let modalBody = document.querySelector('.modal-body');
+
+    // cat details formated using template literal
+    let catDetails = `
+    <div style="overflow: auto;">
+    <div style="float: right;">
+        <img src="${cat.image.url}" class="img-fluid mb-3" alt="${cat.name}" width="200" height="120">
+    </div>
+    <div>
+        <p>Name: ${cat.name}</p> 
+        <p>Description: ${cat.description}</p>
+        <p>Temperament: ${cat.temperament}</p>
+        <p>Origin: ${cat.origin}</p>
+        <p>Life Span: ${cat.life_span} years</p>
+        <p>Weight : ${cat.weight.imperial} pounds</p>
+    </div>
+</div>
+    `;
+
+    // Update the modal body content
+    modalBody.innerHTML = catDetails;
+    // Update the modal body content
+    modalBody.innerHTML = catDetails;
+
+    // Select the modal
+    let modal = document.getElementById('exampleModal');
+
+    // Create a new instance of the Bootstrap Modal class
+    let bootstrapModal = new bootstrap.Modal(modal);
+
+    // Show the modal
+    bootstrapModal.show();
+}
