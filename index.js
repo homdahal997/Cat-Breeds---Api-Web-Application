@@ -58,9 +58,10 @@ function displayCats(cats) {
             // Prevent the default action
             event.preventDefault();
             event.stopPropagation();
+            displayFavorites();
 
             console.log("Favorite icon clicked!");
-            alert("I will proudly handle favourites later if you are able to implement me ...lol");
+            //alert("I will proudly handle favourites later if you are able to implement me ...lol");
 
         });
 
@@ -112,23 +113,42 @@ function displayCatDetails(cat) {
 
     // cat details formated using template literal
     let catDetails = `
+    <h1> Cat Details</h1>
+    <hr />
     <div style="overflow: auto;">
     <div style="float: right;">
         <img src="${cat.image.url}" class="img-fluid mb-3" alt="${cat.name}" width="200" height="120">
     </div>
     <div>
-        <p>Name: ${cat.name}</p> 
-        <p>Description: ${cat.description}</p>
-        <p>Temperament: ${cat.temperament}</p>
-        <p>Origin: ${cat.origin}</p>
-        <p>Life Span: ${cat.life_span} years</p>
-        <p>Weight : ${cat.weight.imperial} pounds</p>
+        
+            <p>Name: ${cat.name}</p> 
+            <p>Description: ${cat.description}</p>
+            <p>Temperament: ${cat.temperament}</p>
+            <p>Origin: ${cat.origin}</p>
+            <p>Life Span: ${cat.life_span} years</p>
+            <p>Weight : ${cat.weight.imperial} pounds</p>
     </div>
 </div>
     `;
 
     // Update the modal body content
     modalBody.innerHTML = catDetails;
+
+    // Select the modal
+    let modal = document.getElementById('exampleModal');
+
+    // Create a new instance of the Bootstrap Modal class
+    let bootstrapModal = new bootstrap.Modal(modal);
+
+    // Show the modal
+    bootstrapModal.show();
+}
+
+function displayFavorites() {
+    let modalBody = document.querySelector('.modal-body');
+
+    // Update the modal body content
+    modalBody.innerHTML = "I know you are trying to favourite this cat but sorry.. This functionalities is being implemented";
 
     // Select the modal
     let modal = document.getElementById('exampleModal');
