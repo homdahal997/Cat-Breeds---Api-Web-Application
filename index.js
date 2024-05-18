@@ -148,7 +148,7 @@ function displayFavorites() {
     let modalBody = document.querySelector('.modal-body');
 
     // Update the modal body content
-    modalBody.innerHTML = "I know you are trying to favourite this cat but sorry.. This functionalities is being implemented";
+    modalBody.innerHTML = "This feature is currently under development. We will implement favoriting function soon";
 
     // Select the modal
     let modal = document.getElementById('exampleModal');
