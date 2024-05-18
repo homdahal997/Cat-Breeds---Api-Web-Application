@@ -87,8 +87,14 @@ searchButton.addEventListener("click", (event) => {
     // Filtering allData to only include cats whose name includes the search term
     const filteredData = allData.filter(cat => cat.name.toLowerCase().includes(searchTerm));
     console.log("filteredData", filteredData);
-    // Displaying the filtered cats
-    displayCats(filteredData);
+    // Check if filteredData is empty
+    if (filteredData.length === 0) {
+        // Display not found message
+        alert("No cats found with the provided keyword.");
+    } else {
+        // Displaying the filtered cats
+        displayCats(filteredData);
+    }
 });
 
 // Get the button element with the id "resetButton"
