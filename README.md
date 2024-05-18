@@ -2,6 +2,7 @@
 
 This is a simple web application that allows users to browse through a collection of cat breeds. It fetches data from an external API and displays the cats in a card format. Users can click on a cat card to view more details about the breed.
 
+
 ## Features
 
 - Browse through a collection of cat breeds
